@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mesaly - Restaurant Booking Platform
 
-## Getting Started
+A modern restaurant reservation platform built with Next.js, similar to OpenTable. Allows users to discover, explore, and book tables at their favorite restaurants quickly and seamlessly.
 
-First, run the development server:
+## 📋 Prerequisites
+
+- **Bun**: v1.0 or higher (fast package manager)
+- **Node.js**: v18.0 or higher (required by Bun)
+- **Git**: for cloning the repository
+
+> If you don't have Bun installed, download it from [bun.sh](https://bun.sh)
+
+## 🚀 Installation
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+git clone <repository-url>
+cd mesaly
+```
+
+### 2. Install Dependencies
+
+```bash
+bun install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```bash
+cp .env.example .env.local
+```
+
+Then edit `.env.local` with your variables:
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+
+# Application
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+NODE_ENV=development
+```
+
+## 🛠️ Available Commands
+
+### Development
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Starts the development server at [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run build
+```
 
-## Learn More
+Compiles the application for production.
 
-To learn more about Next.js, take a look at the following resources:
+### Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+bun start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Starts the server in production mode.
 
-## Deploy on Vercel
+### Lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+bun run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Runs ESLint to check code quality.
+
+### Format
+
+```bash
+bun run format
+```
+
+Formats code using Prettier.
+
+### Tests
+
+```bash
+bun test
+```
+
+Runs the test suite.
+
+## 📁 Project Structure
+
+```
+mesaly/
+├── app/                      # Next.js routes and components (App Router)
+│   ├── api/                  # API routes
+│   ├── (auth)/               # Auth routes
+│   ├── restaurants/          # Restaurant routes
+│   └── page.tsx              # Home page
+├── components/               # Reusable components
+│   ├── ui/                   # Base components (buttons, inputs, etc)
+│   ├── navbar/               # Navigation bar
+│   └── filters/              # Filter components
+├── lib/                      # Shared utilities and functions
+│   ├── api/                  # API client
+│   ├── auth/                 # Authentication logic
+│   └── utils.ts              # Helper functions
+├── public/                   # Static files
+├── styles/                   # Global styles and CSS modules
+├── supabase/                 # Supabase Edge Functions
+├── .env.local                # Environment variables (never commit)
+├── .env.example              # Example environment variables
+├── next.config.js            # Next.js configuration
+├── tsconfig.json             # TypeScript configuration
+└── package.json              # Project dependencies
+```
+
+## ✨ Key Features (Planned)
+
+- 🔍 **Search & Filtering**: Find restaurants by location, cuisine, and availability
+- 📅 **Booking System**: Intuitive table reservation with real-time confirmation
+- 👤 **User Profiles**: Manage reservations, favorites, and booking history
+- ⭐ **Reviews & Ratings**: Users can leave reviews on restaurants
+- 📍 **Location-Based Search**: Discover nearby restaurants
+- 💳 **Payment Processing**: Secure transaction handling
+- 📧 **Notifications**: Booking confirmations and reminders
+- 🎨 **Modern UI**: Responsive and user-friendly design
+
+## 🛡️ Security
+
+- Row-level security (RLS) with Supabase
+- Secure authentication and authorization
+- Environment variables in `.env.local` (never commit to git)
+- CORS configuration for API routes
+- Rate limiting on API endpoints
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+bun add -g vercel
+vercel
+```
+
+Follow the on-screen instructions. [See documentation](https://vercel.com/docs/frameworks/nextjs)
+
+The project is configured to deploy automatically on Vercel with support for Edge Functions.
+
+## 📚 Technology Stack
+
+**Backend & Database:**
+- Supabase (PostgreSQL, Edge Functions)
+
+**Frontend:**
+- Next.js (App Router)
+- React
+
+**Hosting:**
+- Vercel
+
+## 🤝 Contributing
+
+Contributions are welcome. Please:
+
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is under the MIT License. See `LICENSE` for details.
+
+## 📧 Support
+
+To report bugs or suggestions, open an [issue](https://github.com/yourusername/mesaly/issues) on GitHub.
+
+---
+
+**Last updated**: 2026-10-10
